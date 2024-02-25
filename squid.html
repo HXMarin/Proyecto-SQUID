@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="style.css">
+    <title>Squid</title>
+</head>
+<body>
+    <h1>Índice:</h1>
+    <table class="styled-table">
+        <tr>
+          <td>Reglas de Redes Sociales y Horario Laboral:</td>
+          <td>Autenticación con NCSA:</td>
+          <td>Autenticación de squid con LDAP:</td>
+        </tr>
+    </table>
+    <h1>Redes Sociales y Horario Laboral</h1>
+    <p>En el fichero /etc/squid/squid.conf instauro una nueva regla que 
+    impida acceder a Tiktok e Instagram.</p>
+    <img src="imgs/3.Creación de ACL de redes sociales.jpg" alt="">
+    <p>Con esto denegamos el accedo a Instagram y a TikTok en el horario
+        laborable de 09:00 a 17:00. Aplicamos las reglas:</p>
+    <img src="imgs/asas.jpg" alt="">
+    <p>Después de esto, hay que aplicar las políticas de red del navegador
+        para que el tráfico pase por el proxy.</p>
+    <img src="imgs/4.Configuración de conexión.jpg"alt="">
+    <p>Con esto TikTok e Instagram ya están denegados:</p>
+    <img src="imgs/5.tiktok denegado.jpg" alt="">
+    <img src="imgs/5.instagram denegado.jpg" alt="">
+    <h1>Autenticación con NCSA:</h1>
+    <p>Creo un usuario para que autentique con NCSA y la contraseña:</p>
+    <img src="imgs/6 creación fichero de configuración de contraseñas.jpg" alt="">
+    <p>Muestro al usuario NCSA con su contraseña cifrada:</p>
+    <img src="imgs/6.2.muestra del usuario squid.jpg" alt="">
+    <p>Reiniciamos el servicio Squid y vamos al navegador saldrá 
+        una solicitud de credenciales NCSA para poder acceder a internet.</p>
+    <img src="imgs/7.Prueba de NCSA.jpg" alt="">
+    <p>Con esto, podremos ya utilizar el navegador correctamente</p>
+    <h1>Autenticación con Usuario LDAP en squid:</h1>
+    <p>Instalamos y configuramos LDAP. Esto no es un objetivo
+        de la práctica por lo que obviaremos este paso.</p>
+    <p>Muestro el usuario que será con el que accederemos a internet:</p>
+    <img src="imgs/7.Muestra de los objetos de LDAP.jpg" alt="">
+    <p>Ahora en el fichero de configuración de squid que está en 
+        /etc/squid/squid.conf editaremos la configuración de la siguiente manera:</p>
+    <img src="imgs/5.Configuración ldap Squid 1.jpg" alt="">
+    <img src="imgs/5.Configuración ldap Squid 2.jpg" alt=""><br>
+    <img src="imgs/5.Configuración ldap Squid 3.jpg" alt=""><br>
+    <img src="imgs/5.Configuración ldap Squid 4.jpg" alt="">
+    <p>Reiniciamos el servicio y accedemos al navegador:</p>
+    <img src="imgs/6.Reinicio del servicio.jpg" alt=""><br>
+    <img src="imgs/CREDENCIALES.jpg" alt="">
+    <p>Finalmente podemos acceder como un usuario de LDAP que es hmarin
+    y podemos acceder a internet de forma normal.
+    </p>
+</body>
+</html>
